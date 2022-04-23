@@ -24,7 +24,7 @@ data = Paderborn("Artificial", 1024, OR)
 ```
 The called function results in three different objects:
 * data.motor_current, contains all the samples represented in a 3D-array for the two motor current sensor readings related to the specific experiment and fault name. The lay-out of the array is as follows; nr of time series, sequence length, amount of sensors. 
-* data.vibrations, contains all the samples represented in a 3D-array for the vibration sensor related to the specific experiment and fault name. The lay-out of the array is as follows; nr of time series, sequence length, amount of sensors. 
+* data.vibration_sens, contains all the samples represented in a 3D-array for the vibration sensor related to the specific experiment and fault name. The lay-out of the array is as follows; nr of time series, sequence length, amount of sensors. 
 * data.labels, labels representing different fault conditions.
 
 ### Arguments
