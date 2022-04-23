@@ -57,7 +57,7 @@ The objects that are created are extracted from many MATLAB files, resulting in 
 
 [paderborn]: <https://mb.uni-paderborn.de/en/kat/main-research/datacenter/bearing-datacenter/data-sets-and-download>
 [homebrew]: <https://brew.sh>
-
+[unar]: <https://formulae.brew.sh/formula/unar#default>
 
 
 
