@@ -10,7 +10,7 @@ from sklearn.utils import shuffle
 import sys
 import time
 from tqdm import tqdm
-import subprocess
+
 
 start_time = time.time()
 class Paderborn:
@@ -78,9 +78,16 @@ class Paderborn:
             if not os.path.exists(fpath):
                 self._download(fpath, info[3])
 
-            ab = os.chdir(fdir)
+            from sys import platform
+            if platform == "win32":
+                import patoolib
+                patoolib.extract_archive(fpath, outdir=fdir)
+            else:
+                import subprocess
+                ab = os.chdir(fdir)
+                list_files = subprocess.run(["unar",fpath])
             ## Run a subprocess using homebrew combined with unar to unpack rar files downloaded from the Paderborn Bearing website. 
-            list_files = subprocess.run(["unar",fpath])
+            
 
 
     def read_matfiles(self,directory,experiment,bearing_element):

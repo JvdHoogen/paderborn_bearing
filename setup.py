@@ -7,7 +7,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setuptools.setup(
     name="paderborn_bearing",
-    version="0.1",
+    version="0.2.1",
     author="Jurgen van den Hoogen",
     author_email="jurgenvandenhoogen@hotmail.com",
     description='Preprocessed Paderborn Bearing Dataset for analysing multivariate motor current signals combined with a vibration signal. Please notice that this version is only suited for computers running on Mac OS.',
