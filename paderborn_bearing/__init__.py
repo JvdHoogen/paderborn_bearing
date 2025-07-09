@@ -65,9 +65,27 @@ class Paderborn:
             else:
                 print("can't create directory '{}''".format(path))
                 exit(1)
+
+
+
     def _download(self, fpath, link):
-        print("Downloading to: '{}'".format(fpath))
-        urllib.request.urlretrieve(link, fpath)
+        import requests
+
+        print(f"Downloading to: '{fpath}'")
+
+        try:
+            # First try with SSL verification
+            response = requests.get(link, stream=True, timeout=30)
+            response.raise_for_status()
+        except requests.exceptions.SSLError:
+            print("⚠️ SSL certificate verification failed. Retrying without verification...")
+            response = requests.get(link, stream=True, verify=False, timeout=30)
+            response.raise_for_status()
+
+        with open(fpath, 'wb') as f:
+            for chunk in response.iter_content(chunk_size=8192):
+                if chunk:
+                    f.write(chunk)
 
     def unpack_files(self, rdir, lines):
         for idx, info in enumerate(lines):
@@ -170,5 +188,6 @@ class Paderborn:
                                     self.vibration_sens = np.vstack((self.vibration_sens,vibrations))
                                     time_khz64 = np.zeros((self.threshold,self.seq_len))
 print("--- %s seconds ---" % (time.time() - start_time))
+
 
 
