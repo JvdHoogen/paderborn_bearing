@@ -3,7 +3,7 @@ This package is created to extract and preprocess the Paderborn bearing datasets
 This package is specifically designed to extract multivariate sensor readings from the MATLAB files containing different Bearing faults. The current version supports all operating systems, but keep in mind that you need different software packages installed depending on the operating system you use. 
 
 ### Dataset
-The dataset consists of 26 damaged bearing states and 6 undamaged bearing states (Healthy condition). The damaged bearings are divided into artificial and real damages. Both of these damaged bearing states, two options are available where the damages are located, e.g., inner race (IR) and outer race (OR). One of the experiment types for the artificial OR condition is removed. 
+The dataset consists of 25 damaged bearing states and 6 undamaged bearing states (Healthy condition). The damaged bearings are divided into artificial and real damages. Both of these damaged bearing states, two options are available where the damages are located, e.g., inner race (IR) and outer race (OR). One of the experiment types for the artificial OR condition is removed. 
 
 
 ### Installation
@@ -40,6 +40,7 @@ The following dependencies are needed to get the package installed. Because the 
 * scipy 
 * subprocess (Mac OS/Linux)
 * tqdm
+* requests
 
 ### MacOS/Linux
 Since the package wants to unpack .rar files, you first need to install [Homebrew][homebrew] in your terminal combined with [Unar][unar].
